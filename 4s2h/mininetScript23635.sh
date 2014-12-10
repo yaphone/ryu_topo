@@ -31,6 +31,13 @@ def topology():
 
     print "*** Starting network"
     net.build()
+	
+	
+    c0.start()
+    s1.start([c0])
+    s2.start([c0])
+    s3.start([c0])
+    s4.start([c0])
 
     print "*** Running CLI"
     CLI( net )
