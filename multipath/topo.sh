@@ -19,11 +19,11 @@ def topology():
     h3 = net.addHost( 'h3', mac='00:00:00:00:00:03', ip='10.0.0.3/24' )
     h4 = net.addHost( 'h4', mac='00:00:00:00:00:04', ip='10.0.0.4/24' )
     h5 = net.addHost( 'h5', mac='00:00:00:00:00:05', ip='10.0.0.5/24' )
-    s1 = net.addSwitch( 's7', listenPort=6634, mac='00:00:00:00:00:07' )
-    s2 = net.addSwitch( 's8', listenPort=6635, mac='00:00:00:00:00:08' )
-    s3 = net.addSwitch( 's9', listenPort=6636, mac='00:00:00:00:00:09' )
-    s4 = net.addSwitch( 's10', listenPort=6637, mac='00:00:00:00:00:10' )
-    s5 = net.addSwitch( 's11', listenPort=6638, mac='00:00:00:00:00:11' )
+    s1 = net.addSwitch( 's1', listenPort=6634, mac='00:00:00:00:00:07' )
+    s2 = net.addSwitch( 's2', listenPort=6635, mac='00:00:00:00:00:08' )
+    s3 = net.addSwitch( 's3', listenPort=6636, mac='00:00:00:00:00:09' )
+    s4 = net.addSwitch( 's4', listenPort=6637, mac='00:00:00:00:00:10' )
+    s5 = net.addSwitch( 's5', listenPort=6638, mac='00:00:00:00:00:11' )
 
     print "*** Creating links"
     net.addLink(s5, h5, 8, 0)
