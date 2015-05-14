@@ -1,0 +1,61 @@
+#!/usr/bin/python
+
+"""
+Script created by VND - Visual Network Description (SDN version)
+"""
+from mininet.net import Mininet
+from mininet.node import Controller, RemoteController, OVSKernelSwitch, UserSwitch
+from mininet.cli import CLI
+from mininet.log import setLogLevel
+from mininet.link import Link, TCLink
+
+def topology():
+    "Create a network."
+    net = Mininet( controller=RemoteController, link=TCLink, switch=OVSKernelSwitch )
+
+    print "*** Creating nodes"
+    s1 = net.addSwitch( 's1', listenPort=6673, mac='00:00:00:00:00:01' )
+    s2 = net.addSwitch( 's2', listenPort=6674, mac='00:00:00:00:00:02' )
+    s3 = net.addSwitch( 's3', listenPort=6675, mac='00:00:00:00:00:03' )
+    s4 = net.addSwitch( 's4', listenPort=6676, mac='00:00:00:00:00:04' )
+    s5 = net.addSwitch( 's5', listenPort=6677, mac='00:00:00:00:00:05' )
+    s6 = net.addSwitch( 's6', listenPort=6678, mac='00:00:00:00:00:06' )
+    s7 = net.addSwitch( 's7', listenPort=6679, mac='00:00:00:00:00:07' )
+    h1 = net.addHost( 'h14', mac='00:00:00:00:00:14', ip='10.0.0.1/8' )
+    h2 = net.addHost( 'h15', mac='00:00:00:00:00:15', ip='10.0.0.2/8' )
+    h3 = net.addHost( 'h16', mac='00:00:00:00:00:16', ip='10.0.0.3/8' )
+    h4 = net.addHost( 'h17', mac='00:00:00:00:00:17', ip='10.0.0.4/8' )
+    h5 = net.addHost( 'h19', mac='00:00:00:00:00:19', ip='10.0.0.5/8' )
+    h6 = net.addHost( 'h20', mac='00:00:00:00:00:20', ip='10.0.0.6/8' )
+    h7 = net.addHost( 'h21', mac='00:00:00:00:00:21', ip='10.0.0.7/8' )
+    h8 = net.addHost( 'h22', mac='00:00:00:00:00:22', ip='10.0.0.8/8' )
+
+    print "*** Creating links"
+    net.addLink(s7, h8, 3, 0)
+    net.addLink(s7, h7, 2, 0)
+    net.addLink(s6, h6, 3, 0)
+    net.addLink(s6, h5, 2, 0)
+    net.addLink(s5, h4, 3, 0)
+    net.addLink(s5, h3, 2, 0)
+    net.addLink(s4, h2, 3, 0)
+    net.addLink(s4, h1, 2, 0)
+    net.addLink(s1, s3, 2, 1)
+    net.addLink(s3, s7, 3, 1)
+    net.addLink(s3, s6, 2, 1)
+    net.addLink(s2, s5, 3, 1)
+    net.addLink(s2, s4, 2, 1)
+    net.addLink(s1, s2, 1, 1)
+
+    print "*** Starting network"
+    net.build()
+
+    print "*** Running CLI"
+    CLI( net )
+
+    print "*** Stopping network"
+    net.stop()
+
+if __name__ == '__main__':
+    setLogLevel( 'info' )
+    topology()
+
