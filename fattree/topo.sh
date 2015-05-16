@@ -1,0 +1,141 @@
+#!/usr/bin/python
+
+"""
+Script created by VND - Visual Network Description (SDN version)
+"""
+from mininet.net import Mininet
+from mininet.node import Controller, RemoteController, OVSKernelSwitch, UserSwitch
+from mininet.cli import CLI
+from mininet.log import setLogLevel
+from mininet.link import Link, TCLink
+
+def topology():
+    "Create a network."
+    net = Mininet( controller=RemoteController, link=TCLink, switch=OVSKernelSwitch )
+	c0 = net.addController('c0')
+
+    print "*** Creating nodes"
+    s1 = net.addSwitch( 's1', listenPort=6673, mac='00:00:00:00:00:01' )
+    s2 = net.addSwitch( 's2', listenPort=6674, mac='00:00:00:00:00:02' )
+    s3 = net.addSwitch( 's3', listenPort=6675, mac='00:00:00:00:00:03' )
+    s4 = net.addSwitch( 's4', listenPort=6676, mac='00:00:00:00:00:04' )
+    s5 = net.addSwitch( 's5', listenPort=6677, mac='00:00:00:00:00:05' )
+    s6 = net.addSwitch( 's6', listenPort=6678, mac='00:00:00:00:00:06' )
+    s7 = net.addSwitch( 's7', listenPort=6679, mac='00:00:00:00:00:07' )
+    s8 = net.addSwitch( 's8', listenPort=66710, mac='00:00:00:00:00:08' )
+    s9 = net.addSwitch( 's9', listenPort=66711, mac='00:00:00:00:00:09' )
+    s10 = net.addSwitch( 's10', listenPort=66712, mac='00:00:00:00:00:10' )
+    s11 = net.addSwitch( 's11', listenPort=66713, mac='00:00:00:00:00:11' )
+    s12 = net.addSwitch( 's12', listenPort=66714, mac='00:00:00:00:00:12' )
+    s13 = net.addSwitch( 's13', listenPort=66715, mac='00:00:00:00:00:13' )
+    s14 = net.addSwitch( 's14', listenPort=66716, mac='00:00:00:00:00:14' )
+    s15 = net.addSwitch( 's15', listenPort=66717, mac='00:00:00:00:00:15' )
+    s16 = net.addSwitch( 's16', listenPort=66718, mac='00:00:00:00:00:16' )
+    s17 = net.addSwitch( 's17', listenPort=66719, mac='00:00:00:00:00:17' )
+    s18 = net.addSwitch( 's18', listenPort=66720, mac='00:00:00:00:00:18' )
+    s19 = net.addSwitch( 's19', listenPort=66721, mac='00:00:00:00:00:19' )
+    s20 = net.addSwitch( 's20', listenPort=66722, mac='00:00:00:00:00:20' )
+    h80 = net.addHost( 'h1', mac='00:00:00:00:00:80', ip='10.0.0.1/8' )
+    h81 = net.addHost( 'h2', mac='00:00:00:00:00:81', ip='10.0.0.2/8' )
+    h82 = net.addHost( 'h3', mac='00:00:00:00:00:82', ip='10.0.0.3/8' )
+    h83 = net.addHost( 'h4', mac='00:00:00:00:00:83', ip='10.0.0.4/8' )
+    h94 = net.addHost( 'h5', mac='00:00:00:00:00:94', ip='10.0.0.5/8' )
+    h95 = net.addHost( 'h6', mac='00:00:00:00:00:95', ip='10.0.0.6/8' )
+    h96 = net.addHost( 'h7', mac='00:00:00:00:00:96', ip='10.0.0.7/8' )
+    h97 = net.addHost( 'h8', mac='00:00:00:00:00:97', ip='10.0.0.8/8' )
+    h10 = net.addHost( 'h9', mac='00:00:00:00:00:98', ip='10.0.0.9/8' )
+    h10 = net.addHost( 'h10', mac='00:00:00:00:00:99', ip='10.0.0.10/8' )
+    h10 = net.addHost( 'h11', mac='00:00:00:00:00:100', ip='10.0.0.11/8' )
+    h10 = net.addHost( 'h12', mac='00:00:00:00:00:101', ip='10.0.0.12/8' )
+    h11 = net.addHost( 'h13', mac='00:00:00:00:00:102', ip='10.0.0.13/8' )
+    h11 = net.addHost( 'h14', mac='00:00:00:00:00:103', ip='10.0.0.14/8' )
+    h11 = net.addHost( 'h15', mac='00:00:00:00:00:104', ip='10.0.0.15/8' )
+    h11 = net.addHost( 'h16', mac='00:00:00:00:00:105', ip='10.0.0.16/8' )
+
+    print "*** Creating links"
+    net.addLink(s20, h16, 4, 0)
+    net.addLink(s20, h15, 3, 0)
+    net.addLink(s19, h14, 4, 0)
+    net.addLink(s19, h13, 3, 0)
+    net.addLink(s16, h12, 4, 0)
+    net.addLink(s16, h11, 3, 0)
+    net.addLink(s14, h10, 4, 0)
+    net.addLink(s14, h9, 3, 0)
+    net.addLink(s12, h8, 4, 0)
+    net.addLink(s12, h7, 3, 0)
+    net.addLink(s11, h6, 4, 0)
+    net.addLink(s11, h5, 3, 0)
+    net.addLink(s8, h4, 4, 0)
+    net.addLink(s8, h3, 3, 0)
+    net.addLink(s7, h2, 4, 0)
+    net.addLink(s7, h1, 3, 0)
+    net.addLink(s19, s18, 2, 3)
+    net.addLink(s17, s20, 4, 1)
+    net.addLink(s18, s20, 4, 2)
+    net.addLink(s17, s19, 3, 1)
+    net.addLink(s14, s15, 3, 2)
+    net.addLink(s13, s16, 4, q)
+    net.addLink(s14, s16, 4, 2)
+    net.addLink(s13, s15, 3, 1)
+    net.addLink(s10, s11, 3, 2)
+    net.addLink(s12, s10, 2, 4)
+    net.addLink(s9, s12, 4, 2)
+    net.addLink(s9, s11, 3, 1)
+    net.addLink(s10, s12, 4, 2)
+    net.addLink(s6, s7, 3, 2)
+    net.addLink(s5, s8, 4, 1)
+    net.addLink(s6, s8, 4, 2)
+    net.addLink(s5, s7, 3, 1)
+    net.addLink(s4, s18, 4, 2)
+    net.addLink(s4, s14, 3, 2)
+    net.addLink(s4, s10, 2, 2)
+    net.addLink(s4, s6, 1, 1)
+    net.addLink(s3, s18, 4, 1)
+    net.addLink(s3, s14, 3, 1)
+    net.addLink(s3, s10, 2, 1)
+    net.addLink(s3, s6, 1, 1)
+    net.addLink(s2, s17, 4, 2)
+    net.addLink(s2, s13, 3, 2)
+	net.addLink(s2, s9, 2, 2)
+    net.addLink(s2, s5, 1, 2)
+    net.addLink(s1, s17, 4, 1)
+    net.addLink(s1, s13, 3, 1)
+    net.addLink(s1, s9, 2, 1)
+    net.addLink(s1, s5, 1, 1)
+
+    print "*** Starting network"
+    net.build()
+	
+	c0.start()
+    s1.start([c0])
+    s2.start([c0])
+    s3.start([c0])
+    s4.start([c0])
+    s5.start([c0])
+	s6.start([c0])
+    s7.start([c0])
+    s8.start([c0])
+    s9.start([c0])
+    s10.start([c0])
+	s11.start([c0])
+    s12.start([c0])
+    s13.start([c0])
+    s14.start([c0])
+    s15.start([c0])
+	s16.start([c0])
+    s17.start([c0])
+    s18.start([c0])
+    s19.start([c0])
+    s20.start([c0])
+
+
+    print "*** Running CLI"
+    CLI( net )
+
+    print "*** Stopping network"
+    net.stop()
+
+if __name__ == '__main__':
+    setLogLevel( 'info' )
+    topology()
+
