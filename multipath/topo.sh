@@ -15,7 +15,7 @@ def topology():
 
     print "*** Creating nodes"
     h1 = net.addHost( 'h1', mac='00:00:00:00:00:01', ip='10.0.0.1/24' )
-	h6 = net.addHost( 'h6', mac='00:00:00:00:00:06', ip='10.0.0.6/24')
+    h6 = net.addHost( 'h6', mac='00:00:00:00:00:06', ip='10.0.0.6/24')
     h2 = net.addHost( 'h2', mac='00:00:00:00:00:02', ip='10.0.0.2/24' )
     h3 = net.addHost( 'h3', mac='00:00:00:00:00:03', ip='10.0.0.3/24' )
     h4 = net.addHost( 'h4', mac='00:00:00:00:00:04', ip='10.0.0.4/24' )
@@ -31,7 +31,7 @@ def topology():
     net.addLink(s5, h4, 7, 0)
     net.addLink(s5, h3, 6, 0)
     net.addLink(s5, h2, 5, 0)
-	net.addLink(h6, s1, 5, 0)
+    net.addLink(h6, s1, 5, 0)
     net.addLink(s1, s2, 1, 1)
     net.addLink(s1, s3, 2, 1)
     net.addLink(s1, s4, 3, 1)
