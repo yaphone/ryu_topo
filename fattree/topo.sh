@@ -12,7 +12,7 @@ from mininet.link import Link, TCLink
 def topology():
     "Create a network."
     net = Mininet( controller=RemoteController, link=TCLink, switch=OVSKernelSwitch )
-	c0 = net.addController('c0')
+    c0 = net.addController('c0')
 
     print "*** Creating nodes"
     s1 = net.addSwitch( 's1', listenPort=6673, mac='00:00:00:00:00:01' )
