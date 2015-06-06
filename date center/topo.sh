@@ -58,16 +58,8 @@ def topology():
     h97 = net.addHost( 'h97', mac='00:00:00:00:00:97', ip='10.0.0.97/8' )
     h98 = net.addHost( 'h98', mac='00:00:00:00:00:98', ip='10.0.0.98/8' )
     h99 = net.addHost( 'h99', mac='00:00:00:00:00:99', ip='10.0.0.99/8' )
-    h10 = net.addHost( 'h10', mac='00:00:00:00:00:10', ip='10.0.0.10/8' )
-    h10 = net.addHost( 'h10', mac='00:00:00:00:00:10', ip='10.0.0.10/8' )
-    h10 = net.addHost( 'h10', mac='00:00:00:00:00:10', ip='10.0.0.10/8' )
-    h10 = net.addHost( 'h10', mac='00:00:00:00:00:10', ip='10.0.0.10/8' )
 
     print "*** Creating links"
-    net.addLink(h10, s1, 0, 14)
-    net.addLink(s1, h10, 13, 0)
-    net.addLink(s1, h10, 12, 0)
-    net.addLink(h10, s1, 0, 11)
     net.addLink(h99, s1, 0, 10)
     net.addLink(h98, s1, 0, 9)
     net.addLink(h97, s1, 0, 8)
@@ -129,9 +121,10 @@ def topology():
 
     print "*** Starting network"
     net.build()
+	
     s1.start([c0])
-    s2.start([c0])
-    s3.start([c0])
+	s2.start([c0])
+	s3.start([c0])
     s4.start([c0])
     s5.start([c0])
     s6.start([c0])
@@ -142,14 +135,15 @@ def topology():
     s11.start([c0])
     s12.start([c0])
     s13.start([c0])
-    s14.start([c0])
-    s15.start([c0])
+	s14.start([c0])
+	s15.start([c0])
     s16.start([c0])
     s17.start([c0])
     s18.start([c0])
     s19.start([c0])
     s20.start([c0])
     s21.start([c0])
+
 
     print "*** Running CLI"
     CLI( net )
